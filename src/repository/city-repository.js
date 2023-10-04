@@ -7,7 +7,7 @@ class CityRepository {
       return city;
     } catch (error) {
       console.log("error occured while creating a city");
-      throw {error};
+      throw { error };
     }
   }
 
@@ -20,7 +20,7 @@ class CityRepository {
       });
     } catch (error) {
       console.log("error occured while deleting city");
-      throw {error};
+      throw { error };
     }
   }
 
@@ -34,20 +34,17 @@ class CityRepository {
       return city;
     } catch (error) {
       console.log("error occured while updating data");
-      throw {error};
+      throw { error };
     }
   }
 
   async getCity(CityId) {
     try {
-      const city = await City.create({
-        where: {
-          id: CityId,
-        },
-      });
+      const city = await City.findByPk(CityId);
+      return city;
     } catch (error) {
       console.log("error occured while reading city");
-      throw {error};
+      throw { error };
     }
   }
 }
