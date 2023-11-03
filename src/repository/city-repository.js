@@ -26,11 +26,17 @@ class CityRepository {
 
   async updateCity(CityId, data) {
     try {
-      const city = await City.update(data, {
-        where: {
-          id: CityId,
-        },
-      });
+      //below approach will not return the json object after success
+      // const city = await City.update(data, {
+      //   where: {
+      //     id: CityId,
+      //   },
+      // });
+
+      // this approach will return the json object
+      const city = await City.findByPk(CityId);
+      city.name = data.name;
+      await city.save();
       return city;
     } catch (error) {
       console.log("error occured while updating data");

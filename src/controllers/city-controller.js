@@ -1,4 +1,4 @@
-import { CityService } from "../services/index";
+const { CityService } = require("../services/index");
 
 const cityService = new CityService();
 
@@ -45,7 +45,7 @@ const destroy = async (req, res) => {
 const update = async (req, res) => {
   try {
     const city = await cityService.updateCity(req.params.id, req.body);
-    return res.status(200).josn({
+    return res.status(200).json({
       data: city,
       success: true,
       message: "Successfully updated the city",

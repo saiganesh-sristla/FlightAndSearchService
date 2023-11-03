@@ -1,4 +1,4 @@
-import { CityRepository } from "../repository/index";
+const { CityRepository } = require("../repository/index");
 
 class CityService {
   constructor() {
