@@ -5,11 +5,13 @@ const {
   get,
   destroy,
   update,
+  getAll,
 } = require("../../controllers/city-controller");
 
-router.post("/create", create);
-router.get("/get/:id", get);
-router.delete("/delete/:id", destroy);
-router.patch("/update/:id", update);
+router.post("/city", create);
+router.get("/city/:id", get);
+router.delete("/city/:id", destroy);
+router.patch("/city/:id", update);
+router.get("/city", getAll);
 
 module.exports = router;
