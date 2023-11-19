@@ -63,6 +63,16 @@ class CityRepository {
       throw { error };
     }
   }
+
+  async CreateMultipleCities(cities){
+    try {
+      const result = await City.bulkCreate(cities);
+      return result;
+    } catch (error) {
+      console.log("error occured while creating multiple cities");
+      throw { error };
+    }
+  }
 }
 
 module.exports = CityRepository;
