@@ -54,7 +54,7 @@ class CityRepository {
     }
   }
 
-  async getAllCity(){
+  async getAllCity() {
     try {
       const cities = await City.findAll();
       return cities;
@@ -64,12 +64,23 @@ class CityRepository {
     }
   }
 
-  async CreateMultipleCities(cities){
+  async CreateMultipleCities(cities) {
     try {
       const result = await City.bulkCreate(cities);
       return result;
     } catch (error) {
       console.log("error occured while creating multiple cities");
+      throw { error };
+    }
+  }
+
+  async getAllAirport(id) {
+    try {
+      const city = await City.findByPk(id);
+      const airports = city.getAirports();
+      return airports;
+    } catch (error) {
+      console.log("error occured while fetching airports of a city");
       throw { error };
     }
   }

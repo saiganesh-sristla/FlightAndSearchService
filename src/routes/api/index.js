@@ -7,6 +7,7 @@ const {
   update,
   getAll,
   createMultiple,
+  getAllAirport
 } = require("../../controllers/city-controller");
 
 const {createAirport, getAirport, updateAirport, destroyAirport} = require("../../controllers/airport-controller");
@@ -17,6 +18,7 @@ router.delete("/city/:id", destroy);
 router.patch("/city/:id", update);
 router.get("/city", getAll);
 router.post("/city/multiple", createMultiple);
+router.get("/city/getAirport/:id", getAllAirport);
 
 
 router.post("/airport", createAirport);
