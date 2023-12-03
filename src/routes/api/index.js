@@ -12,6 +12,8 @@ const {
 
 const {createAirport, getAirport, updateAirport, destroyAirport} = require("../../controllers/airport-controller");
 
+const flightController = require("../../controllers/flight-controller");
+
 router.post("/city", create);
 router.get("/city/:id", get);
 router.delete("/city/:id", destroy);
@@ -25,5 +27,8 @@ router.post("/airport", createAirport);
 router.get("/airport/:id", getAirport);
 router.delete("/airport/:id", destroyAirport);
 router.patch("/airport/:id", updateAirport);
+
+
+router.post("/flight", flightController.create);
 
 module.exports = router;
